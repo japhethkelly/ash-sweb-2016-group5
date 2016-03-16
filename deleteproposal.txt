@@ -1,0 +1,45 @@
+<?php
+//@author David Okyere(74092017)
+
+	//check for user code
+	if (isset($_REQUEST['usercode'])){
+		$usercode = $_REQUEST['usercode'];
+	}
+	
+	//include users.php
+	include_once("users.php");
+	
+	//create an object of users and delete the user
+	$user = new users();
+	$result = $user->deleteUser($usercode);
+	
+	
+	//redirect to list
+	header("Location:userslist.php");	
+	
+	//for changing user 'Enable/Disable' status
+	//check for user code & status
+	if (isset($_REQUEST['status'])&&($_REQUEST['usercode1'])){
+		
+		//include users.php
+		include_once("users.php");
+	    $status=$_REQUEST['status'];
+        $usercode=$_REQUEST['usercode1'];
+		
+    //create an object of users and change status of the user
+    $userobj = new users();
+    $result = $userobj->disableAndEnable($status,$usercode);
+	
+	//check for error
+	if(!$result){
+		echo "Error";
+	}
+	
+	//redirect to list
+	else{
+		header("Location:userslist.php");
+		exit();
+	}
+	}
+		
+?>
