@@ -8,9 +8,11 @@
 
 /**
  * Description of editAppFunction
- *
+ * This class houses all the related functions for editing an application
  * @author Christabelle Baako
  */
 class editAppFunction {
     //put your code here
+    
+    
 }
