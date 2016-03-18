@@ -49,7 +49,9 @@ class submit extends adb{
         
        // echo $strQuery;
   
-        $result = $this->query($strQuery);		
+        $result = $this->query($strQuery);	
+        
+         return $result;
         
 	}
     

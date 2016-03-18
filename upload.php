@@ -48,7 +48,7 @@ if (!isset ($_REQUEST['usertype'])){
          for($i=0; $i<count($tmp_name_array);$i++){
              if (move_uploaded_file($tmp_name_array[$i], "uploaded_docs/".$name_array[$i])){
                  echo $name_array[$i]." file upload complete<br>";
-                 $t=$obj->submitDocs( "uploaded_docs/".$name_array[$i], $name_array[$i],  $size_array[$i],$type_array=[$i]);
+                 $t=$obj->submitDocs($name_array[$i],  $size_array[$i],$type_array=[$i], "uploaded_docs/".$name_array[$i]);
         }else{
             echo "File upload failed for ".$name_array[$i]."<br>";
         }

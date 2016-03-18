@@ -10,7 +10,7 @@ class testAdb extends PHPUnit_Framework_TestCase
 		
         $this->assertEquals(true,  
 		$obj->submitData(
-                 "female",	//status
+            "female",	//status
 			"2015-04-04",		//date
 			"See YA",			//project title
             "My name",		//researcher
@@ -20,12 +20,12 @@ class testAdb extends PHPUnit_Framework_TestCase
             "a@gmail.com",		//email
 			"grant",			//Tullow
 			"2015-04-07",		//file type
-            "no" ,      //exemption
-            "tree",			//numa
-            "go",		//numb
+            "no" ,              //exemption
+            "tree",			    //numa
+            "go",		        //numb
 			"uyount",			//numc
-			"wow",		//numd
-            "o",//numf
+			"wow",		        //numd
+            "o",                //numf
             "tree",			//numg
             "go",		//pro
 			"uyount",			//risks
@@ -43,7 +43,7 @@ class testAdb extends PHPUnit_Framework_TestCase
      
 		$this->assertEquals(true,$obj->query("select * from `irb-application` where email='a@gmail.com'"));
 		//count the number of fields
-		$this->assertCount(30,$obj->fetch());
+		$this->assertCount(29,$obj->fetch());
 
     }
 }
