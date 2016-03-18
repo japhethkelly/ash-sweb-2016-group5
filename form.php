@@ -26,7 +26,8 @@
 					<div id="divContent">
 						
                         
-						<form action="" method="GET">
+				        <form action="upload.php" method="POST" enctype="multipart/form-data">
+
                             <fieldset>
                                 <legend><b>General Research Application Form:</b></legend>
                                     <div>User type: <input type="radio" name="usertype" value="1"> Faculty/Staff
@@ -35,29 +36,25 @@
                                     <div>Date submitted: <input type="date" name="date"/></div>
                                     <div>Title of project: <input type="text" name="projtitle"></div>
                                     <div>Principal investigator: <input type="text" name="princinvest"></div>
-                                    <div>Co-Principal investigator: <input type="text" name="coprincinvest1"><input type="text" name="coprincnvest2"></div>
+                                    <div>Co-Principal investigator: <input type="text" name="coprincinvest"></div>
                                     <div>Principal investigator Department: <input type="text" name="princinvestdept"></div>
                                     <div>Principal investigator Phone: <input type="tel" name="princinvestphone"></div>
                                     <div>Email Address: <input type="email" name="mailaddress"/></div>
                                         <br/>
                                     <div>If an external grant is being sought, or already approved for this project, state the funding source and submission deadline or date or project initiation.</div>
                                     <div>Grant source: <input type="text" name="grant"></div>
-                                    <div>Grant Deadline: <input type="date" name="date"/></div>
+                                    <div>Grant Deadline: <input type="date" name="grantdate"/></div>
             
                             </fieldset>
-                	   </form>	
-            
-                       <form action="" method="GET">
+                	  
                             <fieldset>
                                 <legend><b>Section I: General instructions:</b></legend>
                                     <div>This application form must be submitted with the research proposal, consent forms to be used with subjects in the research, questionnaires and vernacular translations if appropriate, and any additional documents that will assist reviewers to fully understand the purposes, methods, and field procedures that will beused. Please complete every section of this application form. If any section is not relevant to your research indicate with N/A.</div>
 			                        <div>If you are requesting an exemption from Human Rights Committee (HSRC) review, explain the basis for the requested exemption.</div>
-                                    <div><textarea name="exemption" cols="50" rows="2">Please list the benefits here...</textarea></div>   
+                                    <div><textarea name="exemption" cols="50" rows="2"></textarea></div>   
                             </fieldset>
-                        </form>
+                       
                         
-                        
-                        <form action="" method="GET">
                             <fieldset>
                                 <legend><b>Section II: Numbers, Types and Recruitment of Subjects:</b></legend>
                                     <div>A. Identify the numbers and characteristics of subjects (e.g., age ranges, sex, ethnic background, health status, disabilities, etc.):</div>
@@ -69,16 +66,13 @@
                                     <div>D. To what extent and how are the subjects to be informed of research procedures before their participation?:</div>
                                     <div><textarea name="numD" cols="50" rows="2"></textarea></div>   
                                     <div>E. Upload a copy of the written "Informed Consent” form or a written statement of the oral consent. If this is produced in vernacular languages please provide a copy in each language being used in field work. The consent form should include the purpose of the research, that the engagement is voluntary, duration of engagement with the subject, risk and benefit, contact information:</div>
-                                    <div><b>Upload document: </b><input type="file" name="numE"></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]"></div>
                                     <div>F. How will you classify your research method ? (experiment, observation, modeling, etc.) Specify all methods you anticipate to use:</div>
                                     <div><textarea name="numF" cols="50" rows="2"></textarea></div>  
                                     <div>G. Specify the data sources you will use for your research (e.g. questionnaire, audio recording of interview, human resource files, experiment data, etc.):</div>
                                     <div><input type="text" name="numG"/></div> 
                             </fieldset>
-                        </form>
-                        
-         
-                        <form action="" method="GET">
+                       
                             <fieldset>
                                 <legend><b>Section III: Risks involved in research:</b></legend>
                                 <div>Identify potential risks for subjects to be involved in this project/research. What procedures will be in place to minimize any risks to subjects?</div>
@@ -93,10 +87,7 @@
                                 <div>If the answer to any of the above is "Yes", please explain this procedure in detail and describe procedures for protecting against or minimizing any potential risk.</div>
                                 <div><textarea name="risks" cols="50" rows="4"></textarea></div>  
                             </fieldset>
-                        </form>
                         
-                        
-                	    <form action="" method="GET">
                             <fieldset>
                                 <legend><b>Section IV: Confidentiality:</b></legend>
                                     <div>A. To what extent is the information confidential and to what extent are provisions made so that subjects are not identified:</div>
@@ -111,29 +102,23 @@
                                     <div>How will the confidentiality of subjects or organizations be protected in the dessimination?:</div>
                                     <div><textarea name="conC3" cols="50" rows="4"></textarea></div>   
                             </fieldset>
-                        </form>
-            
-                                
-                	    <form action="" method="GET">
+                        
                             <fieldset>
                                 <legend><b>Section V: Benefits:</b></legend>
                                     <div>Describe any anticipated benefits to subjects from participation in this research.:</div>   
 			                        <div>A. Will participants/subjects/respondents be compensated or rewarded in any way?</div>
-                                    <div><textarea name="desc" cols="50" rows="2">Please list the benefits here...</textarea></div>                
+                                    <div><textarea name="compensation" cols="50" rows="2"></textarea></div>                
                                     <div>B. What intrinsic benefits will participants/subjects/respondents receive?:</div>
                                     <div><input type="text" name="benB"/></div>  
                             </fieldset>
-                        </form>
-            
-                                           
-                	    <form action="" method="POST" enctype="multipart/form-data">
+                        
                             <fieldset>
                                 <legend><b>Section VI: Checklist:</b></legend>
                                     <div>A. Attach a full copy of your research proposal (grant, thesis, dissertation proposal, etc.):</div>
                                         <br/>
-                                    <div><b>Upload document: </b><input type="file" name="cheA1"></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]"></div>
 			                        <div>If full proposal is not available, explain why this document is not available.</div>
-                                    <div><textarea name="desc" cols="50" rows="4"></textarea></div>
+                                    <div><textarea name="unavailable" cols="50" rows="4"></textarea></div>
                                     <div>B. Regardless of whether or not a full research proposal is available, upload a concise, two-page summary below that includes:
                                         <ul>
                                             <li>A brief summary of the background literature stimulating this research</li>
@@ -144,20 +129,22 @@
                                         </ul>
                                     </div>
                                     <div>NOTE: You may “cut-and-paste” as needed from your full proposal, if available, and the committee may refer to the full proposal for clarification.</div>
-                                    <div><b>Upload document: </b><input type="file" name="cheB"></div> 
+                                    <div><b>Upload document: </b><input type="file" name="upload[]"></div> 
                                     <div>C. Consent Agreement(s) including description of how informed consent will be obtained.[NOTE: Please add the following statement to the final copy of your Informed Consent Agreement: “This research protocol has been reviewed and approved by the Ashesi University Human Subjects Review Committee. If you have questions about the approval process, please contact Chair, Ashesi University HSCR, (chair’s Ashesi e-mail address).]</div>
-                                    <div><b>Upload document: </b><input type="file" name="cheC"></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]"></div>
                                     <div>D. Copies of all instruments, questionnaires, or tests to be used (if instruments are not fully developed yet, attach drafts, and so indicate).</div>
-                                    <div><b>Upload document: </b><input type="file" name="cheD"></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]"></div>
                                     <div>E. Flyers to be posted on or off campus for participant enlistment. [NOTE: These must be stamped with Committee Approval prior to posting]</div>
-                                    <div><b>Upload document: </b><input type="file" name="cheD"></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]"></div>
                             </fieldset>
+                            
+                              <br/>
+			            <input type="submit" value="Save progress" name='save'>
+                        <input type="submit" value="Submit" name='sub'>		
                         </form>
             
     
-                        <br/>
-			            <input type="submit" value="Save progress" name='save'>
-                        <input type="submit" value="Submit" name='sub'>						
+                      				
 					</div>
 				</td>
 			</tr>
