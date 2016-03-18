@@ -38,10 +38,12 @@ class adb{
 			return false;
 		}
 		$this->result=$this->db->query($strQuery);
-                //echo "$this->result";
+                
 		if($this->result==false){
+                    echo "result false";
 			return false;
 		}
+               // echo "query successful";
 		return true;
 	}
 	/*
@@ -51,10 +53,12 @@ class adb{
 	function fetch(){
 		//Complete this funtion to fetch from the $this->result
 		if($this->result==null){
+                    echo "empty";
 			return false;
 		}
 		
 		if($this->result==false){
+                                        
 			return false;
 		}
 		

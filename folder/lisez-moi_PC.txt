@@ -1,0 +1,37 @@
+             CD-ROM ALTER EGO + NIVEAU 1
+
+
+-------------------------------------------------------------------------------- 
+          LEXIQUE INTERACTIF  
+-------------------------------------------------------------------------------- 
+
+Ce CD-ROM contient un lexique interactif que vous pouvez installer sur votre 
+poste et enrichir vous-même.
+
+Pour utiliser ce lexique, vous devez préalablement installer Adobe Air sur votre
+ordinateur. Si ce n'est pas le cas, vous pouvez télécharger AIR depuis la page : 
+page http://get.adobe.com/fr/air/
+
+
+
+-------------------------------------------------------------------------------- 
+          ENREGISTREMENTS
+-------------------------------------------------------------------------------- 
+
+Vous pouvez télécharger l'intégralité des enregistrements du manuel au format mp3
+depuis l'interface de votre CD-ROM (allez dans la rubrique "enregistrements" puis 
+cliquez sur "Télécharger toutes les pistes").
+
+Toutefois, il n'est pas nécessaire de lancer le CD-ROM pour récupérer les 
+enregistrements au format mp3 : vous pouvez également les trouver dans le 
+répertoire ressources\mp3s
+
+
+-------------------------------------------------------------------------------- 
+          UTILISATEURS LINUX
+-------------------------------------------------------------------------------- 
+
+Pour lancer l'application, vous devez utiliser un lecteur flash standalone et 
+ouvrir le fichier AlterEgo+1.swf situé à la racine du CD-ROM.
+
+
