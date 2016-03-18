@@ -1,4 +1,5 @@
 <?php
+// Create object of users class
     include_once("submit.php");
     $obj=new submit();
     
@@ -37,18 +38,17 @@ if (!isset ($_REQUEST['usertype'])){
      $uid=1;
     
 
-
+//file upload
  if (isset ($_FILES['upload'])){
          $name_array=$_FILES['upload']['name'];	
          $tmp_name_array=$_FILES['upload']['tmp_name'];	
          $type_array=$_FILES['upload']['type'];	
          $size_array=$_FILES['upload']['size'];	
          $error_array=$_FILES['upload']['error'];
-         $appid=1;
          for($i=0; $i<count($tmp_name_array);$i++){
              if (move_uploaded_file($tmp_name_array[$i], "uploaded_docs/".$name_array[$i])){
                  echo $name_array[$i]." file upload complete<br>";
-                 $t=$obj->submitDocs("uploaded_docs/".$name_array[$i],	$name_array[$i],  $size_array[$i],  $type_array=[$i], $appid);
+                 $t=$obj->submitDocs( "uploaded_docs/".$name_array[$i], $name_array[$i],  $size_array[$i],$type_array=[$i]);
         }else{
             echo "File upload failed for ".$name_array[$i]."<br>";
         }
@@ -61,9 +61,10 @@ if (!isset ($_REQUEST['usertype'])){
 	
     // Check if it was successfull
     if($r==true) {
-        echo 'Database updated!';
-    }else {
         echo 'Error! Failed to update database';
+    }else {
+        
+        echo 'Database updated!';
     }
   
    

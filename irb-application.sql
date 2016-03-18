@@ -65,8 +65,8 @@ CREATE TABLE IF NOT EXISTS `uploadedfiles` (
   `filedir` varchar(255) NOT NULL,
   `filename` varchar(255) NOT NULL,
   `size` int(11) NOT NULL,
-  `appid` int(11) NOT NULL,
+  `appid` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) NOT NULL,
-  PRIMARY KEY (`appid`),
+   PRIMARY KEY (`appid`),
   KEY `appid` (`appid`)
 );
