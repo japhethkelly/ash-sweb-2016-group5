@@ -155,9 +155,9 @@
                         </form>
             
     
-                    <br/>
-			        <input type="submit" value="Save progress" name='save'>
-                    <input type="submit" value="Submit" name='sub'>						
+                        <br/>
+			            <input type="submit" value="Save progress" name='save'>
+                        <input type="submit" value="Submit" name='sub'>						
 					</div>
 				</td>
 			</tr>
