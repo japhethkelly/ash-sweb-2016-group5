@@ -7,7 +7,7 @@
 // creates the edit record form
 // since this form is used multiple times in this file, I have made it a function that is easily reusable
 function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinvest, $coprincinvest1, $princinvestdept, $princinvestphone, $deadline, $grant, $exemption, $numA, $numB, $numC, $numD, $numE, $numF, $numG
-, $risks, $conA, $conB, $conC, $conC1, $conC2, $conC3) {
+, $risks, $conA, $conB, $conC, $conC1, $conC2, $conC3, $file1,$file2,$file3,$file4,$file5,$file6) {
     ?>
     <html>
         <head>
@@ -40,8 +40,8 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                             <form action="" method="POST" enctype="multipart/form-data">
                                 <fieldset>
                                     <legend><b>General Research Application Form:</b></legend>
-                                    <div>User type: <input type="radio" name="usertype" value="1"> Faculty/Staff
-                                        <input type="radio" name="usertype" value="2"> Student
+                                    <div>User type: <input type="radio" name="usertype" value="1" <?php if ($usertype == 'Faculty/Staff') { echo "checked"; }?>> Faculty/Staff
+                                        <input type="radio" name="usertype" value="2" <?php if ($usertype == 'Student') { echo "checked"; }?>> Student
                                     </div>			
                                     <div>Date submitted: <input type="date" name="date" value="<?php echo $date ?>"/></div>
                                     <div>Title of project: <input type="text" name="projtitle" value="<?php echo $projtitle ?>"></div>
@@ -80,7 +80,7 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                     <div>D. To what extent and how are the subjects to be informed of research procedures before their participation?:</div>
                                     <div><textarea name="numD" cols="50" rows="2" value="<?php echo $numD ?>"><?php echo htmlspecialchars(numD); ?></textarea></div>   
                                     <div>E. Upload a copy of the written "Informed Consent” form or a written statement of the oral consent. If this is produced in vernacular languages please provide a copy in each language being used in field work. The consent form should include the purpose of the research, that the engagement is voluntary, duration of engagement with the subject, risk and benefit, contact information:</div>
-                                    <div><b>Upload document: </b><input type="file" name="upload[]" ></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]" ><b>Uploaded Document:<?php echo $file1 ?></b></div>
                                     <div>F. How will you classify your research method ? (experiment, observation, modeling, etc.) Specify all methods you anticipate to use:</div>
                                     <div><textarea name="numF" cols="50" rows="2" value="<?php echo $numF ?>"><?php echo htmlspecialchars($numF); ?></textarea></div>  
                                     <div>G. Specify the data sources you will use for your research (e.g. questionnaire, audio recording of interview, human resource files, experiment data, etc.):</div>
@@ -143,7 +143,7 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                     <legend><b>Section VI: Checklist:</b></legend>
                                     <div>A. Attach a full copy of your research proposal (grant, thesis, dissertation proposal, etc.):</div>
                                     <br/>
-                                    <div><b>Upload document: </b><input type="file" name="upload[]" multiple="multiple"></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]"><b>Uploaded Document:<?php echo $file2 ?></b></div>
                                     <div>If full proposal is not available, explain why this document is not available.</div>
                                     <div><textarea name="desc" cols="50" rows="4" value="<?php echo $date ?>"><?php echo htmlspecialchars($numA); ?></textarea></div>
                                     <div>B. Regardless of whether or not a full research proposal is available, upload a concise, two-page summary below that includes:
@@ -156,16 +156,16 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                         </ul>
                                     </div>
                                     <div>NOTE: You may “cut-and-paste” as needed from your full proposal, if available, and the committee may refer to the full proposal for clarification.</div>
-                                    <div><b>Upload document: </b><input type="file" name="upload[]" ></div> 
+                                    <div><b>Upload document: </b><input type="file" name="upload[]" ><b>Uploaded Document:<?php echo $file3 ?></b></div> 
                                     <div>C. Consent Agreement(s) including description of how informed consent will be obtained.[NOTE: Please add the following statement to the final copy of your Informed Consent Agreement: “This research protocol has been reviewed and approved by the Ashesi University Human Subjects Review Committee. If you have questions about the approval process, please contact Chair, Ashesi University HSCR, (chair’s Ashesi e-mail address).]</div>
-                                    <div><b>Upload document: </b><input type="file" name="upload[]" ></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]" ><b>Uploaded Document:<?php echo $file4 ?></b></div>
                                     <div>D. Copies of all instruments, questionnaires, or tests to be used (if instruments are not fully developed yet, attach drafts, and so indicate).</div>
-                                    <div><b>Upload document: </b><input type="file" name="upload[]" ></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]" ><b>Uploaded Document:<?php echo $file5 ?></b></div>
                                     <div>E. Flyers to be posted on or off campus for participant enlistment. [NOTE: These must be stamped with Committee Approval prior to posting]</div>
-                                    <div><b>Upload document: </b><input type="file" name="upload[]" ></div>
+                                    <div><b>Upload document: </b><input type="file" name="upload[]" ><b>Uploaded Document:<?php echo $file6 ?></b></div>
                                 </fieldset>
                                 <input type="submit" value="Save progress" name='save'>
-                                <input type="submit" value="Submit" name='sub'>
+                                
                             </form>
 
 
@@ -214,7 +214,8 @@ if (isset($_REQUEST['save'])) {
     $conC1 = $_REQUEST['conC1'];
     $conC2 = $_REQUEST['conC2'];
     $conC3 = $_REQUEST['conC3'];
-
+    $test = $_REQUEST['upload'];
+    print_r($test);
     $result = $user1->editApp($usercode, $usertype, $date, $email, $projtitle, $princinvest, $coprincinvest1, $princinvestdept, $princinvestphone, $deadline, $grant, $exemption, $numA, $numB, $numC, $numD, $numE, $numF, $numG
             , $risks, $conA, $conB, $conC, $conC1, $conC2, $conC3);
     if (isset($_FILES['upload'])) {
@@ -226,11 +227,10 @@ if (isset($_REQUEST['save'])) {
         for ($i = 0; $i < count($tmp_name_array); $i++) {
             if (move_uploaded_file($tmp_name_array[$i], "folder/" . $name_array[$i])) {
                 echo $name_array[$i] . " upload is complete<br>";
-                $user1->uploadFiles($name_array[$i], $size_array[$i], $type_array[$i], $section,"folder/" . $name_array[$i], 1);
+                $user1->uploadFiles($name_array[$i], $size_array[$i], $type_array[$i],$i, "folder/" . $name_array[$i], 1);
             } else {
                 echo "move_uploaded_file function failed for " . $name_array[$i] . "<br>";
             }
-            
         }
     }
 //    if (isset($_FILES['upload'])) {
@@ -296,16 +296,38 @@ if (isset($_REQUEST['save'])) {
             $conC1 = $row['HowConfProtected'];
             $conC2 = $row['WillSubjectReward'];
             $conC3 = $row['WhatIntrinsicBenefits'];
-            // show form
-
-            renderForm($usercode, $usertype, $date, $projtitle, $princinvest, $coprincinvest1, $princinvestdept, $princinvestphone, $deadline, $grant, $exemption, $numA, $numB, $numC, $numD, $numE, $numF, $numG
-                    , $risks, $conA, $conB, $conC, $conC1, $conC2, $conC3);
+            
             echo"form rendered";
         } else {
             // if no match, display result
             echo "No results!";
         }
-    } else {
+        $result2 = $user1->getFileDetails(1);
+        while($row2 = $user1->fetch()){
+            if ($row2['section'] == "") {
+                $file1 = $row2['filename'];
+            echo "$file1";}
+            if ($row2['section'] == "test1") {
+                $file2 = $row2['filename'];
+            echo "$file2";}
+            if ($row2['section'] == "") {
+                $file3 = $row2['filename'];
+            echo "$file3";}
+            if ($row2['section'] == "") {
+                $file4 = $row2['filename'];
+            echo "$file4";}
+            if ($row2['section'] == "") {
+                $file5 = $row2['filename'];
+            echo "$file5";}
+            if ($row2['section'] == "") {
+                $file6 = $row2['filename'];
+            echo "$file6";}
+        }
+        // show form
+            echo "$usertype";
+            renderForm($usercode, $usertype, $date, $projtitle, $princinvest, $coprincinvest1, $princinvestdept, $princinvestphone, $deadline, $grant, $exemption, $numA, $numB, $numC, $numD, $numE, $numF, $numG
+                    , $risks, $conA, $conB, $conC, $conC1, $conC2, $conC3,$file1,$file2,$file3,$file4,$file5,$file6);
+        } else {
         // if the 'id' in the URL isn't valid, or if there is no 'id' value, display an error
         echo 'Error URL isnt valid!';
     }
