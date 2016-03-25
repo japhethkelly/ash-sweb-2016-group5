@@ -1,5 +1,7 @@
 <?php
 //@author David Okyere(74092017)
+//Reference page that creates an object of the proposal class and runs the delete function
+
 
 	if (isset($_REQUEST['procode'])){
 		$procode = $_REQUEST['procode'];
