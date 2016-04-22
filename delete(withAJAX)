@@ -1,0 +1,25 @@
+<!--delete functionality with Ajax
+-->
+<html>
+    <head>
+        <title> Dashboard </title>
+    </head>
+    <link rel="stylesheet" href="css/studentdashboardstyle.css"/>
+    <link rel="icon" href="css/Capture1.ico"/>
+    <body class="font">
+        <div class="main">
+            <?php
+            // put your code here
+            session_start();
+
+            $firstname = $_SESSION['fname'];
+            $lastname = $_SESSION['lname'];
+            $usercode = $_SESSION['userid'];
+            include("session.php");
+            if ($_SESSION['type'] == "REVIEWER") {
+                header("Location: reviewerHomepage.php");
+            }
+            // echo " Welcome $firstname $lastname";
+            ?>
+
+           
