@@ -1,0 +1,23 @@
+var tablerow;
+function deleteRecordComplete(xhr, status) {
+    if (status != "success") {
+        // divStatus.innerHTML = "error while deleteing a page";
+        return;
+    }
+    // divStatus.innerHTML = xhr.responseText;
+
+    var i = tablerow.parentNode.parentNode.rowIndex;
+    console.log(i);
+    document.getElementById("myTable").deleteRow(i);
+
+}
+
+function deleteRecord(row, recordID) {
+    tablerow = row;
+    var ajaxPageUrl = "viewAppPage.php?appid=" + recordID;
+    if (confirm('Are You Sure You Want To Delete Application ' + recordID)) {
+        $.ajax(ajaxPageUrl,
+                {async: true, complete: deleteRecordComplete}
+        );
+    }
+}
