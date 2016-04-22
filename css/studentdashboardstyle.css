@@ -1,0 +1,163 @@
+/**
+*Group 5 (Dashboard UI CSS Sheet)
+*David Okyere 
+*Ayeley Commodore-Mensah
+*Natasha Mabuza
+*Japheth Kelly
+**/
+@font-face{
+    font-family:'myFirstFont';
+    src: url('Roboto-Thin.ttf');
+}
+.font{
+    color:#651a1a;
+    font-family:'myFirstFont';
+    font-size:60px;
+    font-weight:bold;
+}
+.footer{
+    color:white;
+    font-family:'myFirstFont';
+    font-weight:bold;
+    font-size:18px;
+    text-align:center;
+    width:100%;
+    background:#535353;
+    height:80px;
+}
+.main{
+    width:100%;
+    height:600px;
+}
+.insfont{
+    font-size:20px;	
+    color:black;	
+}
+#sidebar{
+    background:white;
+    height:600px; 
+    width:22%; 
+    display: inline-block; 
+    float: left;   
+}
+#userlogo{
+    position:absolute;
+    top:20px;
+    width:80px;
+    height:80px;
+}
+#sfont{
+    position:absolute;
+    left:100px;
+    top:50px;
+    font-size:40px;
+}
+#link1{
+    position:relative;
+    top:20%;
+    left:10%;
+    font-size:25px;
+}
+#link2{
+    position:relative;
+    top:25%;
+    left:10%;
+    font-size:25px;
+}
+a { color: inherit; text-decoration: none; } 
+#link3{
+    position:relative;
+    top:30%;
+    left:22%;
+    font-size:25px;
+}
+#link1:hover{
+    text-decoration:underline;
+    cursor:pointer;
+}
+#link2:hover{
+    text-decoration:underline;
+    cursor:pointer;
+}   
+#link3:hover{
+    text-decoration:underline;
+    cursor:pointer;
+}
+#logophoto{
+    position:absolute;
+    left:1250px;
+    width:80px;
+    height:80px;
+}
+#lofont{
+    position:relative;
+    top:70%;
+    left:92%;
+    font-size:19px;
+}
+#lofont:hover{
+    text-decoration:underline;
+    cursor:pointer;
+}
+#left-section{
+    height:600px;
+    width:78%; 
+    display: inline-block; 
+    background:white;
+    float:left;   
+}
+#logo{
+    background:white;
+    height:120px;
+    width:1040px;
+    margin-bottom:5px;   
+}
+#middle{
+    background:#e6e6e6;
+    height:400px;
+    width:1040px;
+}
+#tablefont{
+    font-size:40px;	
+    color:black;
+}
+
+#inCent{
+    font-size:40px;	
+    text-align:center;
+}
+
+.table-wrapper
+{
+    border: 1px solid red;
+    width: 100px;
+    height: 50px;
+    overflow: auto;
+}
+
+table
+{
+    border: 1px solid black;
+    margin-right: 20px;
+}
+
+td
+{
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+}
+#butCent{
+    width:100%;	
+    text-align:center;
+}
+
+#edit-del{
+    font-size:20px;	
+    color:black;
+}
+#edit-del:hover{
+    text-decoration:underline;	
+    color:#651a1a;
+    cursor:pointer;
+}

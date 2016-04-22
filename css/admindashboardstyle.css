@@ -1,0 +1,121 @@
+/**
+*Group 5 (Admin-Dashboard UI CSS Sheet)
+*David Okyere 
+*Ayeley Commodore-Mensah
+*Natasha Mabuza
+*Japheth Kelly
+**/
+@font-face{
+	font-family:'myFirstFont';
+    src: url('Roboto-Thin.ttf');
+}
+.font{
+ color:#651a1a;
+ font-family:'myFirstFont';
+ font-size:60px;
+ font-weight:bold;
+}
+.footer{
+	color:white;
+	font-family:'myFirstFont';
+	font-weight:bold;
+	font-size:18px;
+	text-align:center;
+	width:100%;
+	background:#535353;
+	height:80px;
+}
+.main{
+	width:100%;
+	height:600px;
+}
+.insfont{
+    font-size:20px;	
+    color:black;	
+}
+#sidebar{
+   background:white;
+   height:600px; 
+   width:22%; 
+   display: inline-block; 
+   float: left;   
+}
+#userlogo{
+	position:absolute;
+	top:20px;
+	width:80px;
+	height:80px;
+}
+#sfont{
+	position:absolute;
+	left:100px;
+	top:50px;
+	font-size:40px;
+}
+#link1{
+   position:absolute;
+   top:35%;
+   left:4%;
+   font-size:25px;
+}
+#link2{
+   position:absolute;
+   top:45%;
+   left:5%;
+   font-size:25px;
+}
+#link1:hover{
+   text-decoration:underline;
+   cursor:pointer;
+}
+#link2:hover{
+   text-decoration:underline;
+   cursor:pointer;
+} 
+#lofont{
+	position:relative;
+	top:70%;
+    left:92%;
+	font-size:19px;
+}
+#lofont:hover{
+	text-decoration:underline;
+   cursor:pointer;
+}  
+#logophoto{
+	position:absolute;
+	left:1250px;
+	width:80px;
+	height:80px;
+}
+#left-section{
+   height:600px;
+   width:78%; 
+   display: inline-block; 
+   background:white;
+   float:left;   
+}
+#logo{
+   background:white;
+   height:120px;
+   width:1040px;
+   margin-bottom:5px;   
+}
+#middle{
+	background:#e6e6e6;
+    height:400px;
+    width:1040px;
+}
+#tablefont{
+    font-size:40px;	
+    color:black;
+}
+#view{
+	font-size:20px;	
+    color:black;
+}
+#view:hover{
+	text-decoration:underline;	
+    color:#651a1a;
+	cursor:pointer;
+}

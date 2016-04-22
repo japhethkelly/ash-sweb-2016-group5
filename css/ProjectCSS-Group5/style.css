@@ -1,0 +1,103 @@
+/**
+*Group 5 (Homepage UI CSS Sheet)
+*David Okyere 
+*Ayeley Commodore-Mensah
+*Natasha Mabuza
+*Japheth Kelly
+**/
+@font-face{
+	font-family:'myFirstFont';
+    src: url('Roboto-Thin.ttf');
+}
+.font{
+ color:#651a1a;
+ font-family:'myFirstFont';
+ font-size:60px;
+ font-weight:bold;
+}
+.footer{
+	color:white;
+	font-family:'myFirstFont';
+	font-weight:bold;
+	font-size:18px;
+	text-align:center;
+	width:100%;
+	background:#535353;
+	height:80px;
+}
+.middle{
+	margin-top:15px;
+	width:100%;
+	height:465px;
+	background:#800000;
+}
+#header{
+    text-align:center-left;
+	width:100%;
+	background:white;
+	height:120px;
+}
+#hfont{
+	position:absolute;
+	left:120px;
+	top:60px;
+}
+#pfont{
+	position:absolute;
+	color:white;
+    font-size:25px;	
+	top:180px;
+	left:50px;
+}
+#logo{
+	position:absolute;
+	left:10px;
+	width:100px;
+	height:100px;
+	top:35px
+}
+#lfont{
+	position:absolute;
+	font-size:40px;
+	left:750px;
+	top:200px;
+	color:white;
+}
+#form{
+	position:absolute;
+	margin-top:120px;
+	margin-left:740px;
+	color:white;
+	font-size:10px;
+}
+#size{
+	width:300px;
+	height:40px;
+}
+#button{
+	background-color:#800000;
+	border-radius:4px;
+    border:2px solid #ffffff; 
+    color:white;
+    text-align:center;
+    font-size:30px;
+	width:300px;
+	position:absolute;
+	margin-left:740px;
+	margin-top:250px;
+}
+#button:hover{
+	cursor:pointer;
+}
+#ffont2{
+    color:white;
+	font-size:15px;
+	position:absolute;
+	margin-top:420px;
+	margin-left:1285px;
+}
+#ffont2:hover{
+	cursor:pointer;
+	text-decoration:underline;
+}
+
