@@ -147,15 +147,15 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                     <legend><b>Section IV: Confidentiality:</b></legend>
                                     <div>A. To what extent is the information confidential and to what extent are provisions made so that subjects are not identified:</div>
                                     <div>If you are requesting an exemption from Human Rights Committee (HSRC) review, explain the basis for the requested exemption.</div>
-                                    <div><textarea name="conA" cols="50" rows="4" value="<?php echo $conA ?>" required><?php echo htmlspecialchars($conA); ?></textarea></div>    
+                                    <div><textarea name="conA" id="conA" cols="50" rows="4" value="<?php echo $conA ?>" required><?php echo htmlspecialchars($conA); ?></textarea></div>    
                                     <div>B. What are the procedures for handling and storing data so that confidentiality of the subjects and privacy are protected? Particular attention should be given if research data will include the use of photographs, video and audio recordings, computer files, organizational records, medical records, financial records with individual or corporate information)?:</div>
-                                    <div><textarea name="conB" cols="50" rows="4" value="<?php echo $conB ?>" required><?php echo htmlspecialchars($conB); ?></textarea></div>  
+                                    <div><textarea name="conB" id="conB" cols="50" rows="4" value="<?php echo $conB ?>" required><?php echo htmlspecialchars($conB); ?></textarea></div>  
                                     <div>How will the results of the research be disseminated?:</div>
-                                    <div><textarea name="conC1" cols="50" rows="4" value="<?php echo $conC1 ?>" required><?php echo htmlspecialchars($conC1); ?></textarea></div>  
+                                    <div><textarea name="conC1" id="conC1" cols="50" rows="4" value="<?php echo $conC1 ?>" required><?php echo htmlspecialchars($conC1); ?></textarea></div>  
                                     <div>How will the subjects be informed of the results?:</div>
-                                    <div><textarea name="conC2" cols="50" rows="4" value="<?php echo $conC2 ?>" required><?php echo htmlspecialchars($conC2); ?></textarea></div>    
+                                    <div><textarea name="conC2" id="conC2" cols="50" rows="4" value="<?php echo $conC2 ?>" required><?php echo htmlspecialchars($conC2); ?></textarea></div>    
                                     <div>How will the confidentiality of subjects or organizations be protected in the dessimination?:</div>
-                                    <div><textarea name="conC3" cols="50" rows="4" value="<?php echo $conC3 ?>" required><?php echo htmlspecialchars($conC3); ?></textarea></div>   
+                                    <div><textarea name="conC3" id="conC3" cols="50" rows="4" value="<?php echo $conC3 ?>" required><?php echo htmlspecialchars($conC3); ?></textarea></div>   
 
                                 </fieldset>
 
@@ -166,9 +166,9 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                     <legend><b>Section V: Benefits:</b></legend>
                                     <div>Describe any anticipated benefits to subjects from participation in this research.:</div>   
                                     <div>A. Will participants/subjects/respondents be compensated or rewarded in any way?</div>
-                                    <div><textarea name="desc" cols="50" rows="2" value="<?php echo $desc ?>" required><?php echo htmlspecialchars($conC3); ?></textarea></div>                
+                                    <div><textarea name="desc" id="desc" cols="50" rows="2" value="<?php echo $desc ?>" required><?php echo htmlspecialchars($conC3); ?></textarea></div>                
                                     <div>B. What intrinsic benefits will participants/subjects/respondents receive?:</div>
-                                    <div><textarea name="benf" cols="50" rows="2" value="<?php echo $benf ?>" required><?php echo htmlspecialchars($benf); ?></textarea></div>  
+                                    <div><textarea name="benf" id="benf" cols="50" rows="2" value="<?php echo $benf ?>" required><?php echo htmlspecialchars($benf); ?></textarea></div>  
                                 </fieldset>
 
 
@@ -178,7 +178,7 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                     <legend><b>Section VI: Checklist:</b></legend>
                                     <div>A. Attach a full copy of your research proposal (grant, thesis, dissertation proposal, etc.):</div>
                                     <br/>
-                                    <div><b>Upload document: </b><input type="file" name="upload2" <?php
+                                    <div><b>Upload document: </b><input type="file" name="upload2" id="upload2"<?php
                                         if ($file2 == '') {
                                             echo "required";
                                         }
