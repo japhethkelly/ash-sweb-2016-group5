@@ -71,15 +71,15 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                         echo "$date";
                                         ?>" required ></div>
 
-                                    <div>Title of project: <input type="text" name="projtitle" value="<?php echo $projtitle ?>" required></div>
-                                    <div>Principal investigator: <input type="text" name="princinvest" value="<?php echo $princinvest ?>" required></div>
-                                    <div>Co-Principal investigator: <input type="text" name="coprincinvest1" value="<?php echo $coprincinvest1 ?>">
-                                        <div>Principal investigator Department: <input type="text" name="princinvestdept" value="<?php echo $princinvestdept ?>" required></div>
-                                        <div>Principal investigator Phone: <input type="tel" name="princinvestphone" value="<?php echo $princinvestphone ?>" required></div>
-                                        <div>Email Address: <input type="email" name="mailaddress" value="<?php echo $email ?>" required></div>
+                                    <div>Title of project: <input type="text" name="projtitle" id="projtitle" value="<?php echo $projtitle ?>" required></div>
+                                    <div>Principal investigator: <input type="text" name="princinvest" id="princinvest" value="<?php echo $princinvest ?>" required></div>
+                                    <div>Co-Principal investigator: <input type="text" name="coprincinvest1" id="coprincinvest1" value="<?php echo $coprincinvest1 ?>">
+                                        <div>Principal investigator Department: <input type="text" name="princinvestdept" id="princinvestdept" value="<?php echo $princinvestdept ?>" required></div>
+                                        <div>Principal investigator Phone: <input type="tel" name="princinvestphone" id="princinvestphone" value="<?php echo $princinvestphone ?>" required></div>
+                                        <div>Email Address: <input type="email" name="mailaddress" id="mailaddress" value="<?php echo $email ?>" required></div>
                                         <br/>
                                         <div>If an external grant is being sought, or already approved for this project, state the funding source and submission deadline or date or project initiation.</div>
-                                        <div>Grant source: <input type="text" name="grant" value="<?php echo $grant ?>"></div>
+                                        <div>Grant source: <input type="text" name="grant" id="grant" value="<?php echo $grant ?>"></div>
                                         <div>Grant Deadline: <input type="date" id="deadl"  name="deadline" value="<?php echo $deadline ?>"></div>
 
                                 </fieldset>
