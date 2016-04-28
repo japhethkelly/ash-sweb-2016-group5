@@ -1,32 +1,10 @@
-<?php
-/*
-  EDIT.PHP
-  Allows user to edit specific entry in database
- */
-
-// creates the edit record form
-// since this form is used multiple times in this file, I have made it a function that is easily reusable
-/**
-<<<<<<< HEAD
- * Begin comment
-=======
->>>>>>> b405c1f0999a78cd76b0dc43cc4104661d8ccdc4
- * Description of editAppFunction
- * Function renders form after processing php code to load the details into the form
- * This class houses all the related functions for editing an application
- * @author Japheth Kelly
- * 
- */
-session_start();
-include("session.php");
-if ($_SESSION['type'] == "REVIEWER") {
-    header("Location: reviewerHomepage.php");
-}
-
-function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinvest, $coprincinvest1, $princinvestdept, $princinvestphone, $deadline, $grant, $exemption, $numA, $numB, $numC, $numD, $numF, $numG
-, $risks, $conA, $conB, $conC1, $conC2, $conC3, $desc, $benf, $reas, $file1, $file2, $file3, $file4, $file5, $file6, $ids_array) {
-    ?>
-    <html>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
         <head>
             <title>Submit Proposal</title>
             <link rel="stylesheet" href="css/style.css">
@@ -36,11 +14,11 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
         <body>
             <table>
                 <tr>
-                    <td><a class="btn" colspan="2" href="logIn.php">LOGOUT</a></td>
+                   <td><a class="btn" href="logIn.php">LOGOUT</a></td>
                     <td colspan="2" id="page-header">
                         Request for Human Subjects Approval
                     </td>
-                    <td><a class="btn" colspan="2" href="logIn.php">SAVE</a></td>
+                    <td><a class="btn" href="logIn.php">SAVE</a></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -54,23 +32,10 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                             <form name="irbForm" method="POST" onsubmit="return formValidation()" enctype="multipart/form-data" >
                                 <fieldset>
                                     <legend><b>General Research Application Form:</b></legend>
-                                    <div>User type: <input type="radio" name="usertype" value="Faculty/Staff" <?php
-                                        if ($usertype == 'Faculty/Staff') {
-                                            echo "checked";
-                                        }
-                                        ?> required> Faculty/Staff
-                                        <input type="radio" name="usertype" value="Student" <?php
-                                        if ($usertype == 'Student') {
-                                            echo "checked";
-                                        }
-                                        ?> required> Student
+                                    <div>User type: <input type="radio" name="usertype" value="Faculty/Staff" required> Faculty/Staff
+                                        <input type="radio" name="usertype" value="Student" required> Student
                                     </div>			
-                                    <div>Date submitted: <input type="date" name="date" value="<?php
-                                        date_default_timezone_set('Africa/Ghana');
-                                        $date = date('Y/m/d h:i:s a', time());
-                                        echo "$date";
-                                        ?>" required ></div>
-
+                                    <div>Date submitted: <input type="date" name="date" >" required ></div>
                                     <div>Title of project: <input type="text" name="projtitle" value="<?php echo $projtitle ?>" required></div>
                                     <div>Principal investigator: <input type="text" name="princinvest" value="<?php echo $princinvest ?>" required></div>
                                     <div>Co-Principal investigator: <input type="text" name="coprincinvest1" value="<?php echo $coprincinvest1 ?>">
@@ -234,207 +199,3 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
             </table>
         </body>
     </html>	
-    <?php
-}
-
-// connect to the database
-include_once("functions.php");
-$user1 = new functions;
-
-// check if the form has been submitted. If it has, process the form and save it to the database
-if (isset($_REQUEST['save'])) {
-    $usercode = $_SESSION['userid'];
-    $appid = $_SESSION['appid'];
-    //echo "APPID: $appid";
-    // confirm that the 'id' value is a valid integer before getting the form data
-    // get form data, making sure it is valid
-    $usertype = $_REQUEST['usertype'];
-    $date = $_REQUEST['date'];
-    $projtitle = $_REQUEST['projtitle'];
-    $princinvest = $_REQUEST['princinvest'];
-    $coprincinvest1 = $_REQUEST['coprincinvest1'];
-    $princinvestdept = $_REQUEST['princinvestdept'];
-    $princinvestphone = $_REQUEST['princinvestphone'];
-    $email = $_REQUEST['mailaddress'];
-    $deadline = $_REQUEST['deadline'];
-    $grant = $_REQUEST['grant'];
-    $exemption = $_REQUEST['exemption'];
-    $numA = $_REQUEST['numA'];
-    $numB = $_REQUEST['numB'];
-    $numC = $_REQUEST['numC'];
-    $numD = $_REQUEST['numD'];
-    $numF = $_REQUEST['numF'];
-    $numG = $_REQUEST['numG'];
-    $risks = $_REQUEST['risks'];
-    $conA = $_REQUEST['conA'];
-    $conB = $_REQUEST['conB'];
-    $conC1 = $_REQUEST['conC1'];
-    $conC2 = $_REQUEST['conC2'];
-    $conC3 = $_REQUEST['conC3'];
-    $desc = $_REQUEST['desc'];
-    $benf = $_REQUEST['benf'];
-    $reas = $_REQUEST['reas'];
-    $ids = implode(",", $_REQUEST["procedure"]);
-    $result = $user1->editApp($appid, $usertype, $date, $projtitle, $princinvest, $coprincinvest1, $princinvestdept, $princinvestphone, $email, $deadline, $grant, $exemption, $numA, $numB, $numC, $numD, $numF, $numG
-            , $risks, $conA, $conB, $conC1, $conC2, $conC3, $desc, $benf, $reas, $ids, "NOT SUBMITTED");
-
-    for ($x = 1; $x <= 6; $x++) {
-        $fileid = "upload" . $x;
-        // echo "$fileid";
-        if (isset($_FILES[$fileid])) {
-            $name_array = $_FILES[$fileid]['name'];
-            $tmp_name_array = $_FILES[$fileid]['tmp_name'];
-            $type_array = $_FILES[$fileid]['type'];
-            $size_array = $_FILES[$fileid]['size'];
-            $error_array = $_FILES[$fileid]['error'];
-
-            if (move_uploaded_file($tmp_name_array, "folder/" . $name_array)) {
-                // echo $name_array[$i] . " upload is complete<br>";
-                $user1->uploadFiles($name_array, $size_array, $type_array, $fileid, "folder/" . $name_array, $appid);
-            } else {
-                // echo "move_uploaded_file function failed for " . $name_array . "<br>";
-            }
-        }
-    }
-    if ($result == false) {
-        echo "SQL ERROR";
-    } else {
-        // once saved, redirect back to the view page
-        header("Location: viewAppPage.php");
-    }
-} elseif (isset($_REQUEST['submit'])) {
-    $usercode = $_SESSION['userid'];
-    $appid = $_SESSION['appid'];
-    //echo "APPID: $appid";
-    // confirm that the 'id' value is a valid integer before getting the form data
-    // get form data, making sure it is valid
-    $usertype = $_REQUEST['usertype'];
-    $date = $_REQUEST['date'];
-    $projtitle = $_REQUEST['projtitle'];
-    $princinvest = $_REQUEST['princinvest'];
-    $coprincinvest1 = $_REQUEST['coprincinvest1'];
-    $princinvestdept = $_REQUEST['princinvestdept'];
-    $princinvestphone = $_REQUEST['princinvestphone'];
-    $email = $_REQUEST['mailaddress'];
-    $deadline = $_REQUEST['deadline'];
-    $grant = $_REQUEST['grant'];
-    $exemption = $_REQUEST['exemption'];
-    $numA = $_REQUEST['numA'];
-    $numB = $_REQUEST['numB'];
-    $numC = $_REQUEST['numC'];
-    $numD = $_REQUEST['numD'];
-    $numF = $_REQUEST['numF'];
-    $numG = $_REQUEST['numG'];
-    $risks = $_REQUEST['risks'];
-    $conA = $_REQUEST['conA'];
-    $conB = $_REQUEST['conB'];
-    $conC1 = $_REQUEST['conC1'];
-    $conC2 = $_REQUEST['conC2'];
-    $conC3 = $_REQUEST['conC3'];
-    $desc = $_REQUEST['desc'];
-    $benf = $_REQUEST['benf'];
-    $reas = $_REQUEST['reas'];
-    $ids = implode(",", $_REQUEST["procedure"]);
-    $result = $user1->submitApp($appid, $usertype, $date, $projtitle, $princinvest, $coprincinvest1, $princinvestdept, $princinvestphone, $email, $deadline, $grant, $exemption, $numA, $numB, $numC, $numD, $numF, $numG
-            , $risks, $conA, $conB, $conC1, $conC2, $conC3, $desc, $benf, $reas, $ids, "SUBMITTED");
-    $user1->addStatus($appid, $usercode);
-    for ($x = 1; $x <= 6; $x++) {
-        $fileid = "upload" . $x;
-        // echo "$fileid";
-        if (isset($_FILES[$fileid])) {
-            $name_array = $_FILES[$fileid]['name'];
-            $tmp_name_array = $_FILES[$fileid]['tmp_name'];
-            $type_array = $_FILES[$fileid]['type'];
-            $size_array = $_FILES[$fileid]['size'];
-            $error_array = $_FILES[$fileid]['error'];
-
-            if (move_uploaded_file($tmp_name_array, "folder/" . $name_array)) {
-                // echo $name_array[$i] . " upload is complete<br>";
-                $user1->uploadFiles($name_array, $size_array, $type_array, $fileid, "folder/" . $name_array, $appid);
-            } else {
-                // echo "move_uploaded_file function failed for " . $name_array . "<br>";
-            }
-        }
-    }
-    if ($result == false) {
-        echo "SQL ERROR";
-    } else {
-        // once saved, redirect back to the view page
-        header("Location: appStatusPage.php");
-    }
-} else {
-
-// if the form hasn't been submitted, get the data from the db and display the form
-    // get the 'id' value from the URL (if it exists), making sure that it is valid (checing that it is numeric/larger than 0)
-    if (isset($_REQUEST['appid'])) {
-        $_SESSION['appid'] = $_REQUEST['appid'];
-        $uc = $_SESSION['appid'];
-        echo "$uc";
-        // query db
-        //$id = $_REQUEST['usercode'];
-        $result = $user1->getAppDetails($uc);
-        $row = $user1->fetch();
-        // check that the 'id' matches up with a row in the databse
-        if ($row) {
-            // get data from db
-            $usertype = $row['Status'];
-            $date = $row['DateSubmitted'];
-            $projtitle = $row['TitleOfProject'];
-            $princinvest = $row['PrincipalInvestigator'];
-            $coprincinvest1 = $row['CoPrincipalInvestigator'];
-            $princinvestdept = $row['PIDepartment'];
-            $princinvestphone = $row['PIPhoneNo'];
-            $email = $row['Email'];
-            $exemption = $row['Exemption'];
-            $grant = $row['GrantSource'];
-            $deadline = $row['GrantDeadline'];
-            $numA = $row['NumCharOfSubjects'];
-            $numB = $row['SpecialClasses'];
-            $numC = $row['HowRecruited'];
-            $numD = $row['HowResProc'];
-            $numF = $row['ReseachMethodClass'];
-            $numG = $row['DataSources'];
-            $risks = $row['ReseachIndepthProcedure'];
-            $conA = $row['ExtentOfConf'];
-            $conB = $row['PorcForHandlingData'];
-            $conC1 = $row['HowDisseminated'];
-            $conC2 = $row['HowInformed'];
-            $conC3 = $row['HowConfProtected'];
-            $desc = $row['WillSubjectReward'];
-            $benf = $row['WhatIntrinsicBenefits'];
-            $reas = $row['FailedAppReason'];
-            $ids_array = explode(",", $row['CheckBoxArray']);
-        } else {
-            // if no match, display result
-            echo "No results!";
-        }
-        $result2 = $user1->getFileDetails($uc);
-        while ($row2 = $user1->fetch()) {
-            if ($row2['section'] == "upload1") {
-                $file1 = $row2['filename'];
-            }
-            if ($row2['section'] == "upload2") {
-                $file2 = $row2['filename'];
-            }
-            if ($row2['section'] == "upload3") {
-                $file3 = $row2['filename'];
-            }
-            if ($row2['section'] == "upload4") {
-                $file4 = $row2['filename'];
-            }
-            if ($row2['section'] == "upload5") {
-                $file5 = $row2['filename'];
-            }
-            if ($row2['section'] == "upload6") {
-                $file6 = $row2['filename'];
-            }
-        }
-        // show form
-        renderForm($usercode, $usertype, $date, $email, $projtitle, $princinvest, $coprincinvest1, $princinvestdept, $princinvestphone, $deadline, $grant, $exemption, $numA, $numB, $numC, $numD, $numF, $numG
-                , $risks, $conA, $conB, $conC1, $conC2, $conC3, $desc, $benf, $reas, $file1, $file2, $file3, $file4, $file5, $file6, $ids_array);
-    } else {
-        // if the 'id' in the URL isn't valid, or if there is no 'id' value, display an error
-        echo 'Error URL isnt valid!';
-    }
-}
-?>
