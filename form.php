@@ -90,7 +90,7 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                     <legend><b>Section I: General instructions:</b></legend>
                                     <div>This application form must be submitted with the research proposal, consent forms to be used with subjects in the research, questionnaires and vernacular translations if appropriate, and any additional documents that will assist reviewers to fully understand the purposes, methods, and field procedures that will beused. Please complete every section of this application form. If any section is not relevant to your research indicate with N/A.</div>
                                     <div>If you are requesting an exemption from Human Rights Committee (HSRC) review, explain the basis for the requested exemption.</div>
-                                    <div><textarea name="exemption" cols="50" rows="2" value="<?php echo $exemption ?>" required><?php echo htmlspecialchars($exemption); ?></textarea></div>   
+                                    <div><textarea name="exemption" id="exemption" cols="50" rows="2" value="<?php echo $exemption ?>" required><?php echo htmlspecialchars($exemption); ?></textarea></div>   
                                 </fieldset>
 
 
@@ -99,13 +99,13 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                 <fieldset>
                                     <legend><b>Section II: Numbers, Types and Recruitment of Subjects:</b></legend>
                                     <div>A. Identify the numbers and characteristics of subjects (e.g., age ranges, sex, ethnic background, health status, disabilities, etc.):</div>
-                                    <div><input type="text" name="numA" value="<?php echo $numA ?>" required></div>  
+                                    <div><input type="text" name="numA" id="numA" value="<?php echo $numA ?>" required></div>  
                                     <div>B. Special Classes. If applicable, explain the rationale for the use of special classes or subjects such as pregnant women, children, prisoners, mentally impaired, institutionalized, or others who are likely to be particularly vulnerable:</div>
-                                    <div><textarea name="numB" cols="50" rows="4" value="<?php echo $numB ?>"><?php echo htmlspecialchars($numB); ?></textarea></div>  
+                                    <div><textarea name="numB" id="numB" cols="50" rows="4" value="<?php echo $numB ?>"><?php echo htmlspecialchars($numB); ?></textarea></div>  
                                     <div>C. How are the individual participants to be recruited for this research? Is it clear to the subjects that participation is voluntary and that they may withdraw at any time without negative consequences?:</div>
-                                    <div><textarea name="numC" cols="50" rows="4" value="<?php echo $numC ?>" required><?php echo htmlspecialchars($numC); ?></textarea></div>  
+                                    <div><textarea name="numC" id="numC" cols="50" rows="4" value="<?php echo $numC ?>" required><?php echo htmlspecialchars($numC); ?></textarea></div>  
                                     <div>D. To what extent and how are the subjects to be informed of research procedures before their participation?:</div>
-                                    <div><textarea name="numD" cols="50" rows="2" value="<?php echo $numD ?>" required><?php echo htmlspecialchars(numD); ?></textarea></div>   
+                                    <div><textarea name="numD" id="numD" cols="50" rows="2" value="<?php echo $numD ?>" required><?php echo htmlspecialchars(numD); ?></textarea></div>   
                                     <div>E. Upload a copy of the written "Informed Consent” form or a written statement of the oral consent. If this is produced in vernacular languages please provide a copy in each language being used in field work. The consent form should include the purpose of the research, that the engagement is voluntary, duration of engagement with the subject, risk and benefit, contact information:</div>
                                     <div><b>Upload document: </b><input type="file" name="upload1" <?php
                                         if ($file1 == '') {
@@ -113,9 +113,9 @@ function renderForm($usercode, $usertype, $date, $email, $projtitle, $princinves
                                         }
                                         ?>><b>Uploaded Document:<?php echo $file1 ?></b></div>
                                     <div>F. How will you classify your research method ? (experiment, observation, modeling, etc.) Specify all methods you anticipate to use:</div>
-                                    <div><textarea name="numF" cols="50" rows="2" value="<?php echo $numF ?>" required><?php echo htmlspecialchars($numF); ?></textarea></div>  
+                                    <div><textarea name="numF" id="numF" cols="50" rows="2" value="<?php echo $numF ?>" required><?php echo htmlspecialchars($numF); ?></textarea></div>  
                                     <div>G. Specify the data sources you will use for your research (e.g. questionnaire, audio recording of interview, human resource files, experiment data, etc.):</div>
-                                    <div><input type="text" name="numG" value="<?php echo $numG ?>" required></div> 
+                                    <div><input type="text" name="numG" id="numG" value="<?php echo $numG ?>" required></div> 
                                 </fieldset>
 
 
